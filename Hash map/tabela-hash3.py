@@ -1,12 +1,20 @@
 votaram = {}
 
-votaram["Tom"] = True 
+votaram["Tom"] = True
+votaram["Jerry"] = True
 
 def verifica_eleitor(nome):
- if votaram.get(nome):
-  print ("Vaza meu fi")
+ if nome in votaram:
+  return 0
+ else:
+  return 1
+
+def insere_eleitor(nome):
+ if verifica_eleitor(nome) != 1:
+  print ("Eleitor já cadastrado!")
  else:
   votaram[nome] = True
-  print ("Pode votar")
 
-print (verifica_eleitor("Tom"))
+insere_eleitor("Jerry")
+
+print (votaram)
